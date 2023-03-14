@@ -17,7 +17,7 @@ export default class Room {
     this._blockedUsers = [];
   }
 
-  get id(): string {
+  getId(): string {
     return this._id;
   }
 

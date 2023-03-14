@@ -1,0 +1,4 @@
+!vibez help - Shows this message
+!vibez ping - Pong!
+!vibez createroom - Creates a room
+!vibez joinroom - Joins a room

@@ -6,6 +6,7 @@ import {
   TextChannel,
 } from "discord.js";
 import manager from "./Manager.js";
+import credentials from "../data/credentials.json" assert { type: "json" };
 
 export default class Bot extends Client {
   constructor(options: ClientOptions) {
@@ -34,8 +35,13 @@ export default class Bot extends Client {
     const channel = await this.channel(msg.channel.id);
 
     switch (prompt) {
+      case "ping":
+        channel?.send("Pong!");
+        break;
       case "help":
-        (await this.channel(msg.channel.id))?.send("Help message here!");
+        channel?.send(
+          "Commands:\n\n`!vibez help` - Shows this message.\n`!vibez ping` - Pong!\n`!vibez createroom` - Creates a room.\n`!vibez joinroom` - Joins a room."
+        );
         break;
       case "createroom":
         manager.createRoom(
@@ -50,17 +56,15 @@ export default class Bot extends Client {
           msg.channel.id
         );
 
-        (await this.channel(msg.channel.id))?.send(
+        channel?.send(
           `Room created!\n\nOwner: ${msg.author.username}#${msg.author.discriminator}\nServer: ${msg.guild?.name}\nChannel: ${channel?.name}`
         );
         break;
       case "joinroom":
-        const room = manager.getRoom("test");
-
+        // const room = manager.getRoom("test");
+        break;
       default:
-        (await this.channel(msg.channel.id))?.send(
-          "Invalid command! Type `!help` for more info."
-        );
+        channel?.send("Invalid command! Type `!vibez help` for more info.");
         break;
     }
   }
@@ -89,10 +93,10 @@ export default class Bot extends Client {
   }
 
   async start() {
-    await this.login(process.env.DISCORD_SECRET_KEY);
+    await this.login(credentials.DISCORD_SECRET_KEY);
     console.log("[STATUS] Bot logged in!");
     console.log(
-      `[STATUS] Invite bot using this link: ${process.env.DISCORD_BOT_INVITE_LINK}`
+      `[STATUS] Invite bot using this link: ${credentials.DISCORD_BOT_INVITE_LINK}`
     );
   }
 }

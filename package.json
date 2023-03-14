@@ -16,10 +16,12 @@
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "redis": "^4.6.5",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.14.6",
+    "@types/redis": "^4.0.11",
     "@types/uuid": "^9.0.1",
     "nodemon": "^2.0.21",
     "typescript": "^4.9.5"

@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "target": "ES2015",
-    "module": "ES2020",
+    "target": "es2020",
+    "module": "esnext",
     "rootDir": "./src/",
     "outDir": "./dist/",
+    "esModuleInterop": true,
+    "sourceMap": true,
     "strict": true,
     "watch": true,
     "moduleResolution": "node",
@@ -16,7 +17,6 @@
     "forceConsistentCasingInFileNames": true,
     "removeComments": true,
     "typeRoots": ["node_modules/@types"],
-    "sourceMap": false,
     "baseUrl": "./"
   },
   "files": ["src/app.ts"],

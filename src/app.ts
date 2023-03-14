@@ -1,8 +1,5 @@
-import { GatewayIntentBits } from "discord.js";
-import { config } from "dotenv";
 import Bot from "./services/Bot.js";
-
-config();
+import { GatewayIntentBits } from "discord.js";
 
 console.log("[STATUS] Starting bot...");
 
